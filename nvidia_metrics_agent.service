@@ -1,0 +1,11 @@
+[Unit]
+Description=Nvidia Metrics Agent
+[Service]
+PIDFile=/run/nvidia_metrics_agent.pid
+ExecStart=/bin/bash --login -c '/usr/bin/python3.7 /var/nvidia_metrics_agent/collector.py'
+User=root
+Group=root
+WorkingDirectory=/var/nvidia_metrics_agent/
+Restart=always
+[Install]
+WantedBy=multi-user.target
